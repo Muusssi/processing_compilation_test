@@ -19,14 +19,14 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: Package
+          name: Artifacts 3
           path: jars-3.5.4
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: jars-3.5.4/*.jar
-          name: For Processing 3 - ${{ github.ref }}
+          name: For Processing 3 - ${{ github.ref_name }}
           body: ${{ github.event.head_commit.message }}
 
   processing4:
@@ -45,12 +45,12 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: Package
+          name: Artifacts 4
           path: jars-4.0.1
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: jars-4.0.1/*.jar
-          name: For Processing 4 - ${{ github.ref }}
+          name: For Processing 4 - ${{ github.ref_name }}
           body: ${{ github.event.head_commit.message }}
