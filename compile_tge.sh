@@ -1,6 +1,6 @@
 #!/bin/bash -ex
 
-PROCESSING_VERSION=5.3.4
+# Env var PROCESSING_VERSION has to be set to select core.jar
 
 # Create a temporary library for the class files
 mkdir -p tmp
