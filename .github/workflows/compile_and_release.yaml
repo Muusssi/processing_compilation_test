@@ -15,3 +15,7 @@ jobs:
           distribution: 'adopt'
       - name: Compile
         run: ./compile_tge.sh
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Package
+          path: jars-5.3.4
