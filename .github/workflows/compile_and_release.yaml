@@ -15,7 +15,19 @@ jobs:
           distribution: 'adopt'
       - name: Compile
         run: ./compile_tge.sh
-      - uses: actions/upload-artifact@v3
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
         with:
           name: Package
           path: jars-5.3.4
+      - name: Release
+        uses: actions/create-release@v1
+        id: create_release
+        with:
+          draft: false
+          prerelease: false
+          release_name: TGE
+          tag_name: ${{ github.ref }}
+          body_path: jars-5.3.4
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
